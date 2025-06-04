@@ -54,6 +54,24 @@ while true; do
                 exit 1
             fi
         ;;
+        3)
+            if [[ -f "${activeLogDir}water_usage_log.log" ]]; then
+                echo "Archiving water_usage_log.log..."
+                mkdir -p "$waterDir"
+                mv "${activeLogDir}water_usage_log.log" "${waterDir}water_usage_log_$timestamp.log" && \
+                echo "Water usage log archived successfully."
+                break
+            else
+                echo "Water usage log file does not exist in the active logs directory."
+                echo "Please ensure the water usage monitoring process is running and has generated a log file."
+                echo "Exiting without archiving."
+                exit 1
+            fi
+        ;;
+        *)
+            echo -e "Invalid selection ($LogFile). Please enter (1, 2, or 3). \n"
+        ;;
+
         
     esac
 done
