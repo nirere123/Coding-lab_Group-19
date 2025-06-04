@@ -62,7 +62,7 @@ They write logs to: `hospital_data/active_logs/*.log`
 
 ---
 
-## 🛠️ Usage Instructions
+## Usage Instructions
 
 ### Step 1: Create Required Folders
 
@@ -104,18 +104,6 @@ python3 water_meter.py start
 - A report is appended to `reports/analysis_report.txt` with:
   - Total entries per device
   - First and last timestamps
-
----
-
-## Learning Objectives
-
-- **Shell Scripting Proficiency**
-  - Menu systems, file handling, error checking
-- **Log Management & Automation**
-  - Archiving logs with rotation and timestamping
-- **Data Analysis with CLI Tools**
-  - Using `awk`, `grep`, `sort`, and `uniq` for analysis
-  - Writing cumulative reports
 
 ---
 
