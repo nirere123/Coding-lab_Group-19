@@ -53,3 +53,29 @@ while true; do
             continue
             ;;
     esac
+
+      logPath="${activeLogDir}${logName}"
+    archivePath="${destDir}${prefix}_$timestamp.log"
+
+    # Ensure log file exists
+    if [[ ! -f "$logPath" ]]; then
+        echo "Error: Log file '$logPath' does not exist."
+        exit 1
+    fi
+
+    # Create archive directory if needed
+    mkdir -p "$destDir" || {
+        echo "Error: Failed to create archive directory."
+        exit 1
+    }
+
+    # Move and archive log file
+    mv "$logPath" "$archivePath"
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to archive $prefix."
+        exit 1
+    fi
+
+    echo "$logLabel log archived successfully."
+
+
