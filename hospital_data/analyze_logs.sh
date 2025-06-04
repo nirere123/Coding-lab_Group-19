@@ -78,4 +78,31 @@ while true; do
 
     echo "$logLabel log archived successfully."
 
+   # ANALYSIS
+    echo
+    echo "=== Log Analysis for $archivePath ==="
 
+    # Read and analyze
+    deviceCounts=$(awk '{device[$2]++} END {for (d in device) printf "%s: %d\n", d, device[d]}' "$archivePath")
+    firstTimestamp=$(head -n 1 "$archivePath" | awk '{print $1}')
+    lastTimestamp=$(tail -n 1 "$archivePath" | awk '{print $1}')
+
+    echo "Device counts:"
+    echo "$deviceCounts"
+    echo "First entry timestamp: $firstTimestamp"
+    echo "Last entry timestamp:  $lastTimestamp"
+
+    # Save to report
+    {
+        echo "=== $logLabel Log Analysis ($timestamp) ==="
+        echo "Archived File: $archivePath"
+        echo "$deviceCounts"
+        echo "First Entry: $firstTimestamp"
+        echo "Last Entry:  $lastTimestamp"
+        echo "------------------------------------------"
+    } >> "$reportFile"
+
+    echo
+    echo "Analysis report saved to $reportFile"
+    break
+done
