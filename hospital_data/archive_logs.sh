@@ -40,6 +40,20 @@ while true; do
             fi
             
         ;;
+         2)
+            if [[ -f "${activeLogDir}temperature_log.log" ]]; then
+                echo "Archiving temperature_log.log..."
+                mkdir -p "$temperatureDir"
+                mv "${activeLogDir}temperature_log.log" "${temperatureDir}temperature_log_$timestamp.log" && \
+                echo "Temperature log archived successfully."
+                break
+            else
+                echo "Temperature log file does not exist in the active logs directory."
+                echo "Please ensure the temperature monitoring process is running and has generated a log file."
+                echo "Exiting without archiving."
+                exit 1
+            fi
+        ;;
         
     esac
 done
