@@ -1,10 +1,10 @@
-# 🏥 Health Log Management System
+# Health Log Management System
 
 This project implements an **automated log management and analysis system** for monitoring real-time patient data in a hospital setting using **shell scripting and Python simulators**.
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 Coding-lab_Group{Nbr}/
@@ -24,7 +24,7 @@ Coding-lab_Group{Nbr}/
 
 ---
 
-## 🚀 How It Works
+## How It Works
 
 ### 1. **Python Simulators**
 Each Python file simulates medical/environmental data using random values and logs it in real-time.
@@ -45,7 +45,7 @@ They write logs to: `hospital_data/active_logs/*.log`
 
 ### 2. **Shell Scripts**
 
-#### 🗂️ `archive_logs.sh`
+#### `archive_logs.sh`
 - Interactive script to select which log to archive:
   - Prompts user to choose a log file (heart rate, temperature, or water usage)
   - Archives the file by:
@@ -54,7 +54,7 @@ They write logs to: `hospital_data/active_logs/*.log`
     - Creating a new blank log file for continued logging
 - Handles missing files and invalid input gracefully.
 
-#### 📊 `analyze_logs.sh`
+#### `analyze_logs.sh`
 - Analyzes the selected log file and generates a report:
   - Counts how many entries each device has logged
   - Retrieves the first and last log timestamps per device
@@ -107,7 +107,7 @@ python3 water_meter.py start
 
 ---
 
-## 📚 Learning Objectives
+## Learning Objectives
 
 - **Shell Scripting Proficiency**
   - Menu systems, file handling, error checking
@@ -119,7 +119,7 @@ python3 water_meter.py start
 
 ---
 
-## ✅ Example Output (Analysis Report)
+## Example Output (Analysis Report)
 ```
 ==== Log Analysis: heart_rate_log.log ====
 Timestamp: 2025-06-03 13:10:55
@@ -129,7 +129,7 @@ Device: HeartRate_Monitor_B | Count: 63 | First: 2025-06-03 13:08:10 | Last: 202
 
 ---
 
-## 🧼 To Stop Simulators
+## To Stop Simulators
 
 ```bash
 python3 heart_monitor.py stop
@@ -139,13 +139,13 @@ python3 water_meter.py stop
 
 ---
 
-## 📌 Notes
+## Notes
 
 - Ensure you run the scripts from the **project root directory**.
 - The scripts use relative paths like `hospital_data/active_logs`, so changing structure may require updates.
 
 ---
 
-## 🔗 License
+## License
 
 MIT — Feel free to adapt and build upon this project.
